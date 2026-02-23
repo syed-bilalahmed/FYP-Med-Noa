@@ -1050,3 +1050,121 @@ body {
   color: white;
   transform: translateY(-2px);
 }
+
+/* -------------------------------------------------------
+   Motion & Interactions (Global UI Polish)
+-------------------------------------------------------- */
+
+/* Better focus styles (keyboard users) */
+:focus-visible {
+  outline: 3px solid rgba(58, 190, 249, 0.35);
+  outline-offset: 2px;
+}
+
+/* Subtle nav behavior on scroll */
+.mn-nav-scrolled {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.mn-nav-scrolled .brand-logo {
+  transform: translateZ(0) scale(0.95);
+}
+
+/* Scroll-reveal animation */
+.mn-reveal {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity 650ms ease, transform 650ms ease;
+  will-change: opacity, transform;
+}
+
+.mn-reveal.mn-reveal--left {
+  transform: translate3d(-14px, 0, 0);
+}
+
+.mn-reveal.mn-reveal--right {
+  transform: translate3d(14px, 0, 0);
+}
+
+.mn-reveal.mn-reveal--scale {
+  transform: translate3d(0, 10px, 0) scale(0.98);
+}
+
+.mn-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Back-to-top button */
+.mn-back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  color: var(--blue-900);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease, background 200ms ease;
+  z-index: 1055; /* above sticky nav */
+}
+
+.mn-back-to-top:hover {
+  background: white;
+  transform: translateY(2px);
+}
+
+.mn-back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Button ripple */
+.mn-ripple {
+  position: absolute;
+  border-radius: 999px;
+  transform: scale(0);
+  animation: mn-ripple 550ms ease-out;
+  background: rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+@keyframes mn-ripple {
+  to {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* Form micro-interactions */
+.form-control,
+.form-select {
+  transition: box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 0.2rem rgba(58, 190, 249, 0.18) !important;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .mn-reveal,
+  .mn-back-to-top,
+  .infinity-scroll-track,
+  .chatbot-window {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -91,6 +91,108 @@ const api = {
 
 $(document).ready(function () {
     console.log('Document ready, initializing Med-Nova app...');
+
+    // --- GLOBAL UI ENHANCEMENTS (animations + interactions) ---
+    (function initUiEnhancements() {
+        const $nav = $('nav.navbar.sticky-top').first();
+
+        // Navbar subtle blur/shadow on scroll
+        const updateNav = () => {
+            if (!$nav.length) return;
+            const scrolled = window.scrollY > 8;
+            $nav.toggleClass('mn-nav-scrolled', scrolled);
+        };
+        updateNav();
+        window.addEventListener('scroll', updateNav, { passive: true });
+
+        // Back-to-top button (injected once)
+        if (!document.getElementById('mn-back-to-top')) {
+            const btn = document.createElement('button');
+            btn.id = 'mn-back-to-top';
+            btn.type = 'button';
+            btn.className = 'mn-back-to-top';
+            btn.setAttribute('aria-label', 'Back to top');
+            btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            document.body.appendChild(btn);
+
+            const toggleBtn = () => {
+                btn.classList.toggle('is-visible', window.scrollY > 500);
+            };
+            toggleBtn();
+            window.addEventListener('scroll', toggleBtn, { passive: true });
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+
+        // Smooth scrolling for in-page anchors
+        document.addEventListener('click', (e) => {
+            const a = e.target.closest && e.target.closest('a[href^="#"]');
+            if (!a) return;
+            const href = a.getAttribute('href');
+            if (!href || href === '#' || a.hasAttribute('data-bs-toggle')) return;
+            const el = document.querySelector(href);
+            if (!el) return;
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Button ripple (only for real buttons/btn-like elements)
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest && e.target.closest('.btn, .ripple-effect');
+            if (!target) return;
+            const rect = target.getBoundingClientRect();
+
+            // Ensure the ripple can position correctly
+            const computed = window.getComputedStyle(target);
+            if (computed.position === 'static') target.style.position = 'relative';
+            target.style.overflow = 'hidden';
+
+            const ripple = document.createElement('span');
+            ripple.className = 'mn-ripple';
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+            target.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+        }, { passive: true });
+
+        // Scroll-reveal: auto-apply to common components
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+            const selectors = [
+                '.internal-hero .container',
+                '.hero-redesign .col-lg-6',
+                '.stat-card-blue',
+                '.service-pro-card',
+                '.doctor-pro-card',
+                '.doctor-card-pro',
+                '.blog-pro-card',
+                '.appointment-card',
+                '.bd-card',
+                '.card.shadow-sm',
+                '.card.shadow-lg'
+            ];
+
+            const nodes = Array.from(document.querySelectorAll(selectors.join(',')));
+            nodes.forEach((n, i) => {
+                if (n.classList.contains('mn-reveal')) return;
+                n.classList.add('mn-reveal');
+                if (i % 3 === 0) n.classList.add('mn-reveal--up');
+                if (i % 3 === 1) n.classList.add('mn-reveal--scale');
+                if (i % 3 === 2) n.classList.add('mn-reveal--right');
+            });
+
+            const io = new IntersectionObserver((entries) => {
+                for (const entry of entries) {
+                    if (!entry.isIntersecting) continue;
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+            nodes.forEach(n => io.observe(n));
+        }
+    })();
     // --- SHARED HELPER FUNCTIONS ---
     function loadRegions(selectSelector) {
         console.log('Loading regions for selector:', selectSelector);
@@ -286,6 +388,15 @@ $(document).ready(function () {
             loadFacilities();
         });
         $('#universal-search').on('input', function () { renderFacilities(allFacilities); });
+        $('#reset-filters').on('click', function () {
+            currentRegion = '';
+            $('#region-filter').val('');
+            $('#universal-search').val('');
+            $('#facility-tabs button').removeClass('active');
+            $('#facility-tabs button[data-type="hospital"]').addClass('active');
+            currentType = 'hospital';
+            loadFacilities();
+        });
         loadFacilities();
     }
 
@@ -336,6 +447,9 @@ $(document).ready(function () {
             $('#step-2').removeClass('d-none');
             $('#appointment-progress').css('width', '66%');
             $('#progress-text').text('Step 2: Selection');
+            $('#progress-percent').text('66%');
+            $('#step-label-1').removeClass('active').addClass('completed');
+            $('#step-label-2').addClass('active');
         });
 
         $('#back-to-step-1').click(function () {
@@ -343,6 +457,9 @@ $(document).ready(function () {
             $('#step-1').removeClass('d-none');
             $('#appointment-progress').css('width', '33%');
             $('#progress-text').text('Step 1: Info');
+            $('#progress-percent').text('33%');
+            $('#step-label-1').addClass('active').removeClass('completed');
+            $('#step-label-2').removeClass('active');
         });
 
         $('#step-2-form').submit(async function (e) {
@@ -367,6 +484,9 @@ $(document).ready(function () {
                     $('#step-3').removeClass('d-none');
                     $('#appointment-progress').css('width', '100%');
                     $('#progress-text').text('Step 3: Done');
+                    $('#progress-percent').text('100%');
+                    $('#step-label-2').removeClass('active').addClass('completed');
+                    $('#step-label-3').addClass('active');
                     $('#confirm-name').text(payload.name);
                     $('#confirm-date').text(payload.date);
                 } else {

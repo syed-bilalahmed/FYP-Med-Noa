@@ -68,69 +68,88 @@
         </div>
     </header>
 
-    <div class="container py-4">
+    <section class="py-5 bg-soft">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm rounded-4 h-100">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="fw-bold mb-4">Contact Information</h3>
 
-        <div class="d-flex align-items-center gap-3 mb-4">
-            <div class="icon-box bg-white shadow-sm p-3 rounded-circle text-primary"><i
-                    class="fas fa-map-marker-alt fs-5"></i></div>
-            <div>
-                <h6 class="fw-bold mb-0">Our Location</h6>
-                <p class="text-muted small mb-0">123 Health Avenue, Kohat City, PK</p>
-            </div>
-        </div>
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="icon-box bg-white shadow-sm p-3 rounded-circle text-primary">
+                                    <i class="fas fa-map-marker-alt fs-5"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Our Location</h6>
+                                    <p class="text-muted small mb-0">123 Health Avenue, Kohat City, PK</p>
+                                </div>
+                            </div>
 
-        <div class="d-flex align-items-center gap-3 mb-4">
-            <div class="icon-box bg-white shadow-sm p-3 rounded-circle text-primary"><i
-                    class="fas fa-phone-alt fs-5"></i></div>
-            <div>
-                <h6 class="fw-bold mb-0">Phone Support</h6>
-                <p class="text-muted small mb-0">+92 300 1234567</p>
-            </div>
-        </div>
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="icon-box bg-white shadow-sm p-3 rounded-circle text-primary">
+                                    <i class="fas fa-phone-alt fs-5"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Phone Support</h6>
+                                    <p class="text-muted small mb-0">+92 300 1234567</p>
+                                </div>
+                            </div>
 
-        <div class="d-flex align-items-center gap-3 mb-4">
-            <div class="icon-box bg-white shadow-sm p-3 rounded-circle text-success"><i
-                    class="fab fa-whatsapp fs-5"></i></div>
-            <div>
-                <h6 class="fw-bold mb-0">WhatsApp</h6>
-                <p class="text-muted small mb-0">
-                    <a href="https://wa.me/1234567890?text=Hello%20Med%20Nova%2C%20I%20need%20help"
-                        class="text-decoration-none text-success fw-bold" target="_blank">
-                        +1 (234) 567-8900
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box bg-white shadow-sm p-3 rounded-circle text-success">
+                                    <i class="fab fa-whatsapp fs-5"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">WhatsApp</h6>
+                                    <p class="text-muted small mb-0">
+                                        <a href="https://wa.me/923001234567?text=Hello%20Med%20Nova%2C%20I%20need%20help"
+                                            class="text-decoration-none text-success fw-bold" target="_blank">
+                                            +92 300 1234567
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
 
-    <div class="col-lg-6">
-        <div class="card border-0 shadow-lg p-4 rounded-4">
-            <div class="card-body">
-                <h3 class="fw-bold mb-4">Send Message</h3>
-                <form id="contact-form-submit">
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold">Name</label>
-                        <input type="text" name="name" class="form-control bg-soft border-0" placeholder="Your Name"
-                            required>
+                            <div class="mt-4 pt-3 border-top">
+                                <p class="text-muted mb-0">
+                                    We typically respond within <strong>15–30 minutes</strong> during working hours.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold">WhatsApp Number</label>
-                        <input type="tel" name="phone" class="form-control bg-soft border-0"
-                            placeholder="+1 (234) 567-8900" required>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg rounded-4 h-100">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="fw-bold mb-4">Send Message</h3>
+                            <form id="contact-form-submit">
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-bold">Name</label>
+                                    <input type="text" name="name" class="form-control bg-soft border-0"
+                                        placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-bold">WhatsApp Number</label>
+                                    <input type="tel" name="phone" class="form-control bg-soft border-0"
+                                        placeholder="+92 300 1234567" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-bold">Message</label>
+                                    <textarea name="message" class="form-control bg-soft border-0" rows="5"
+                                        placeholder="How can we help?" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold">Message</label>
-                        <textarea name="message" class="form-control bg-soft border-0" rows="5"
-                            placeholder="How can we help?" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">Send
-                        Message</button>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
+    </section>
 
     <!-- FOOTER -->
     <footer class="site-footer py-5 bg-soft">
@@ -179,9 +198,9 @@
                     <h6 class="fw-bold">Contact</h6>
                     <p class="muted mt-3">
                         <strong>WhatsApp:</strong><br>
-                        <a href="https://wa.me/1234567890?text=Hello%20Med%20Nova%2C%20I%20need%20help"
+                        <a href="https://wa.me/923001234567?text=Hello%20Med%20Nova%2C%20I%20need%20help"
                             class="text-decoration-none text-success fw-bold" target="_blank">
-                            <i class="fab fa-whatsapp me-1"></i>+1 (234) 567-8900
+                            <i class="fab fa-whatsapp me-1"></i>+92 300 1234567
                         </a>
                     </p>
                     <p class="muted">Kohat, KPK, Pakistan</p>
