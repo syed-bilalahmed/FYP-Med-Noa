@@ -726,4 +726,57 @@ $(document).ready(function () {
     $('#mobile-menu-btn').click(function () {
         $('#mobile-menu').toggle();
     });
+
+    // --- BLOGS (NEW DYNAMIC FETCH) ---
+    function loadBlogsHome() {
+        const container = $('#blogs-container');
+        if (!container.length) return;
+
+        $.ajax({
+            url: '../backend/?route=blog/api_list',
+            method: 'GET',
+            success: function (response) {
+                if (response.status === 'success' && response.data && response.data.length > 0) {
+                    let html = '';
+                    // Show only top 3 for home
+                    const blogs = response.data.slice(0, 3);
+                    blogs.forEach(blog => {
+                        const date = new Date(blog.created_at).toLocaleDateString('en-US', {
+                            month: 'short', day: '2-digit', year: '2-digit'
+                        });
+                        const image = blog.image || 'https://placehold.co/600x400/eef6ff/2f7bff?text=Blog';
+
+                        html += `
+                            <div class="col-md-4">
+                                <div class="blog-pro-card h-100">
+                                    <div style="overflow: hidden; height: 200px; border-radius: 12px;">
+                                        <img src="../backend/${image}" 
+                                            onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=MedNova+News'"
+                                            class="w-100 h-100" style="object-fit: cover;" alt="${blog.title}">
+                                    </div>
+                                    <div class="blog-body p-3 d-flex flex-column">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="blog-badge">${blog.category}</span>
+                                            <span class="text-muted small">${date}</span>
+                                        </div>
+                                        <h5 class="blog-title">${blog.title}</h5>
+                                        <p class="text-muted small">${blog.excerpt || ''}</p>
+                                        <a href="#" class="blog-link mt-auto">Read More &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    container.html(html);
+                } else {
+                    container.html('<div class="col-12 text-center text-muted">No news updates available at the moment.</div>');
+                }
+            },
+            error: function () {
+                container.html('<div class="col-12 text-center text-danger">Failed to load news.</div>');
+            }
+        });
+    }
+
+    loadBlogsHome();
 });

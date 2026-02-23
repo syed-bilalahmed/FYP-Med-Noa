@@ -10,6 +10,7 @@
 
     <?php if($role == 'admin'): ?>
         <a href="?route=admin/dashboard" class="menu-item <?= ($_GET['route'] ?? '') == 'admin/dashboard' ? 'active' : '' ?>"><i class="fas fa-th-large"></i> Dashboard</a>
+        <a href="?route=blog/index" class="menu-item <?= (strpos($_GET['route'] ?? '', 'blog') !== false) ? 'active' : '' ?>"><i class="fas fa-blog"></i> Manage Blogs</a>
         <a href="?route=admin/regions" class="menu-item <?= ($_GET['route'] ?? '') == 'admin/regions' ? 'active' : '' ?>"><i class="fas fa-map-marked-alt"></i> Regions</a>
         <a href="?route=admin/hospitals" class="menu-item <?= ($_GET['route'] ?? '') == 'admin/hospitals' ? 'active' : '' ?>"><i class="fas fa-hospital"></i> Hospitals</a>
         <a href="?route=admin/clinics" class="menu-item <?= ($_GET['route'] ?? '') == 'admin/clinics' ? 'active' : '' ?>"><i class="fas fa-clinic-medical"></i> Clinics</a>
