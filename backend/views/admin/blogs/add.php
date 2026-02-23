@@ -1,53 +1,83 @@
 <?php include 'views/layouts/header.php'; ?>
 
+<!-- CKEditor CDN -->
+<script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+
 <div class="container-fluid py-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Add New Blog</h1>
-        <a href="?route=blog/index" class="btn btn-secondary">
-            <i class="fas fa-arrow-left me-1"></i> Back to List
+    <div class="mb-4">
+        <a href="?route=admin/blogs" class="text-decoration-none text-muted">
+            <i class="fas fa-arrow-left me-1"></i> Back to Blogs
         </a>
+        <h2 class="h4 mt-2">Add New Blog Post</h2>
     </div>
 
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <form action="?route=blog/store" method="POST" enctype="multipart/form-data">
-                <div class="row g-3">
-                    <div class="col-md-8">
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Blog Title</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
+    <form action="?route=admin/blog_store" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Blog Title</label>
+                            <input type="text" name="title" class="form-control form-control-lg" placeholder="Enter post title" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="content" class="form-label">Content</label>
-                            <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <select class="form-select" id="category" name="category" required>
-                                <option value="Hospital News">Hospital News</option>
-                                <option value="Public Health">Public Health</option>
-                                <option value="Events">Events</option>
-                                <option value="Technology">Technology</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="excerpt" class="form-label">Excerpt (Short description)</label>
-                            <textarea class="form-control" id="excerpt" name="excerpt" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Featured Image</label>
-                            <input type="file" class="form-control" id="image" name="image" accept="image/*">
-                        </div>
-                        <div class="mt-4">
-                            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Publish Blog</button>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Content</label>
+                            <textarea name="content" id="editor"></textarea>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Category</label>
+                            <select name="category_id" class="form-select" required>
+                                <option value="">Select Category</option>
+                                <?php if(!empty($categories)): foreach($categories as $cat): ?>
+                                    <option value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
+                                <?php endforeach; endif; ?>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Featured Image</label>
+                            <div class="input-group">
+                                <input type="file" name="image" class="form-control" accept="image/*">
+                            </div>
+                            <small class="text-muted">Recommended size: 1200x800px</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Excerpt</label>
+                            <textarea name="excerpt" class="form-control" rows="3" placeholder="Brief summary (optional)"></textarea>
+                        </div>
+
+                        <hr>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Publish Blog</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'],
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+<style>
+    .ck-editor__editable {
+        min-height: 400px;
+    }
+</style>
 
 <?php include 'views/layouts/footer.php'; ?>

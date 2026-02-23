@@ -2,61 +2,58 @@
 
 <div class="container-fluid py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Manage Blogs</h1>
-        <a href="?route=blog/add" class="btn btn-primary">
-            <i class="fas fa-plus me-1"></i> Add New Blog
-        </a>
+        <h2 class="h4 mb-0">Manage Blogs</h2>
+        <div>
+            <a href="?route=admin/blog_categories" class="btn btn-outline-primary me-2"><i class="fas fa-tags me-2"></i>Categories</a>
+            <a href="?route=admin/blog_add" class="btn btn-primary"><i class="fas fa-plus me-2"></i>Add New Blog</a>
+        </div>
     </div>
 
-    <?php if (isset($_SESSION['success'])): ?>
+    <?php if(isset($_SESSION['success'])): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <?= $_SESSION['success']; unset($_SESSION['success']); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     <?php endif; ?>
 
-    <?php if (isset($_SESSION['error'])): ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-
-    <div class="card shadow mb-4">
-        <div class="card-body">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                <table class="table table-hover mb-0">
+                    <thead class="bg-light">
                         <tr>
-                            <th>Title</th>
+                            <th class="ps-4">Title</th>
                             <th>Category</th>
                             <th>Author</th>
                             <th>Date</th>
-                            <th>Actions</th>
+                            <th class="text-end pe-4">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($blogs)): ?>
+                        <?php if(!empty($blogs)): foreach($blogs as $blog): ?>
                             <tr>
-                                <td colspan="5" class="text-center">No blogs found.</td>
+                                <td class="ps-4">
+                                    <div class="d-flex align-items-center">
+                                        <?php if($blog['image']): ?>
+                                            <img src="<?= $blog['image'] ?>" class="rounded me-3" style="width: 40px; height: 40px; object-fit: cover;">
+                                        <?php else: ?>
+                                            <div class="bg-light rounded me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                <i class="fas fa-image text-muted"></i>
+                                            </div>
+                                        <?php endif; ?>
+                                        <span class="fw-bold"><?= $blog['title'] ?></span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-soft-primary text-primary"><?= $blog['category_name'] ?? 'Uncategorized' ?></span></td>
+                                <td><?= $blog['author_name'] ?></td>
+                                <td class="text-muted"><?= date('M d, Y', strtotime($blog['created_at'])) ?></td>
+                                <td class="text-end pe-4">
+                                    <a href="?route=admin/blog_edit&id=<?= $blog['id'] ?>" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                    <a href="?route=admin/blog_delete&id=<?= $blog['id'] ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this blog?')"><i class="fas fa-trash"></i></a>
+                                </td>
                             </tr>
-                        <?php else: ?>
-                            <?php foreach ($blogs as $blog): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($blog['title']); ?></td>
-                                    <td><span class="badge bg-info text-dark"><?php echo htmlspecialchars($blog['category']); ?></span></td>
-                                    <td><?php echo htmlspecialchars($blog['author_name']); ?></td>
-                                    <td><?php echo date('M d, Y', strtotime($blog['created_at'])); ?></td>
-                                    <td>
-                                        <a href="?route=blog/edit&id=<?php echo $blog['id']; ?>" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="?route=blog/delete&id=<?php echo $blog['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this blog?')">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
+                        <?php endforeach; else: ?>
+                            <tr><td colspan="5" class="text-center py-4 text-muted">No blogs found.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
