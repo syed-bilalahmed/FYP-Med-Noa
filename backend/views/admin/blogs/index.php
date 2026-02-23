@@ -34,14 +34,14 @@
                             <tr>
                                 <td class="ps-4">
                                     <div class="d-flex align-items-center">
-                                        <?php if($blog['image']): ?>
-                                            <img src="<?= $blog['image'] ?>" class="rounded me-3" style="width: 40px; height: 40px; object-fit: cover;">
-                                        <?php else: ?>
-                                            <div class="bg-light rounded me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                                                <i class="fas fa-image text-muted"></i>
-                                            </div>
-                                        <?php endif; ?>
-                                        <span class="fw-bold"><?= $blog['title'] ?></span>
+                                        <?php 
+                                            $imgSrc = $blog['image'] ? $blog['image'] : 'https://placehold.co/600x400/eef6ff/2f7bff?text=No+Image';
+                                        ?>
+                                        <img src="<?= $imgSrc ?>" 
+                                             onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=Error'"
+                                             class="rounded me-3" 
+                                             style="width: 40px; height: 40px; object-fit: cover;">
+                                        <span class="fw-bold"><?= htmlspecialchars($blog['title']) ?></span>
                                     </div>
                                 </td>
                                 <td><span class="badge bg-soft-primary text-primary"><?= $blog['category_name'] ?? 'Uncategorized' ?></span></td>

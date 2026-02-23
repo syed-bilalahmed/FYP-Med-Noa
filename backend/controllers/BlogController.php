@@ -105,6 +105,8 @@ class BlogController extends Controller {
 
             if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
                 $target_dir = "assets/uploads/blogs/";
+                if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);
+                
                 $file_ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
                 $file_name = time() . '_' . $slug . '.' . $file_ext;
                 $image_path = $target_dir . $file_name;

@@ -49,9 +49,12 @@
 
                         <div class="mb-4">
                             <label class="form-label fw-bold">Featured Image</label>
-                            <?php if($blog['image']): ?>
+                            <?php if(!empty($blog['image'])): ?>
                                 <div class="mb-2">
-                                    <img src="<?= $blog['image'] ?>" class="rounded img-fluid border" style="max-height: 150px;">
+                                    <img src="<?= (strpos($blog['image'], 'http') === 0) ? $blog['image'] : $blog['image'] ?>" 
+                                         onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=Error'"
+                                         class="img-thumbnail" style="max-height: 150px;">
+                                    <input type="hidden" name="old_image" value="<?= $blog['image'] ?>">
                                 </div>
                             <?php endif; ?>
                             <div class="input-group">

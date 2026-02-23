@@ -745,12 +745,13 @@ $(document).ready(function () {
                             month: 'short', day: '2-digit', year: '2-digit'
                         });
                         const image = blog.image || 'https://placehold.co/600x400/eef6ff/2f7bff?text=Blog';
+                        const fullImageUrl = (image.startsWith('http')) ? image : `../backend/${image}`;
 
                         html += `
                             <div class="col-md-4">
                                 <div class="blog-pro-card h-100">
                                     <div style="overflow: hidden; height: 200px; border-radius: 12px;">
-                                        <img src="../backend/${image}" 
+                                        <img src="${fullImageUrl}" 
                                             onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=MedNova+News'"
                                             class="w-100 h-100" style="object-fit: cover;" alt="${blog.title}">
                                     </div>
