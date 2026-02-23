@@ -1,45 +1,75 @@
-## Med-Nova Healthcare Platform
+# 🏥 Med Nova: Healthcare Platform SaaS
+> **"Healthcare Onboarding & Operations Made Simple"**
 
-Med-Nova is a multi-tenant, SaaS-based healthcare platform designed for hospitals, clinics, and specialized centers. It centralizes appointments, patient records, and operational workflows while allowing each organization to maintain its own data and configuration.
+Med Nova is a modern, multi-tenant healthcare platform built to digitize hospitals, clinics, and specialized medical centers. It centralizes appointment scheduling, donor management, and nutrition planning into a single, sleek solution.
 
-### Key Modules
+---
 
-- **Hospital & Clinic Management**: End-to-end appointment flow (booking, rescheduling, cancellations), outpatient and inpatient management, basic billing support, and operational reporting for general hospitals and clinics.
-- **Psychological & Mental Health Centers**: A logically separate module with its own schedules, case notes, and role-based access to protect highly sensitive records.
-- **Diet & Nutrition Plans**: Creation and management of personalized diet plans that can be attached to patient profiles and clinical encounters.
-- **Blood Donation & Requests**: Donor registration, donation history, blood stock management, and handling of blood requests from hospitals and clinics.
+### 🚀 Quick Stats & Tech Stack
+![PHP](https://img.shields.io/badge/PHP-7.4+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Development-orange?style=for-the-badge)
 
-### Architecture Overview
+---
 
-- **Frontend**: Static HTML pages using Bootstrap 5, custom CSS, and basic JavaScript for user interactions.
-- **Backend**: Custom PHP MVC architecture exposing REST-like endpoints and server-rendered views.
-- **Database**: MySQL with a normalized schema supporting:
-  - Multiple hospitals/clinics (multi-tenancy by hospital/clinic)
-  - Role-based access (admin, doctor, receptionist, patient, etc.)
-  - Core entities such as users, patients, doctors, appointments, hospitals, departments, and regions
+### ✨ Core Features
 
-### Project Layout
+#### 🏷️ Hospital & Clinic Management
+- **Smart Booking**: Comprehensive appointment flow (Search → Select → Confirm).
+- **Staff Workflows**: Management for Doctors, Receptionists, and Admins.
+- **Reporting**: Operational snapshots for facility performance.
 
-- `frontend/` – Public-facing site and basic interfaces (HTML, CSS, JS).
-- `backend/` – PHP MVC backend, database configuration, controllers, and API endpoints.
+#### 🧠 Mental Health Centers
+- **Privacy First**: Logically separate modules for psychological case notes.
+- **Dedicated Scheduling**: Specific workflows for therapy and counseling.
 
-The full Copilot/developer-oriented instructions and file reference live in `.github/copilot-instructions.md`.
+#### 🍎 Diet & Nutrition Planning
+- **Personalized Plans**: Create tailored nutrition guides based on patient profiles.
+- **Goal Tracking**: Manage dietary health goals and clinical follow-ups.
 
-### Getting Started (Local Development)
+#### 🩸 Blood Donation Registry
+- **Donor Hub**: Register and track donation history.
+- **Urgent Requests**: Broadcast blood requests across the entire network.
 
-1. **Environment**
-   - Windows with XAMPP (Apache, PHP 7.4+ with PDO MySQL, MySQL 5.7+).
-2. **Clone / Copy Project**
-   - Place the project in `c:\xampp\htdocs\FYP\`.
-3. **Backend Setup**
-   - Configure Apache to serve `backend/` (e.g., `http://localhost/FYP/backend/`).
-   - On first connection, the backend auto-creates the main database (default: `fyp_mediqu`) using the provided schema.
-4. **Frontend Access**
-   - Serve `frontend/` via Apache (e.g., `http://localhost/FYP/frontend/index.html`).
+#### 📝 Dynamic News & Blog
+- **Admin Managed**: Create and categorize blogs via a Rich Text Editor (CKEditor).
+- **Dynamic Frontend**: Real-time news updates on the landing page.
 
-### Next Steps / Roadmap (High Level)
+---
 
-- Harden role-based access and privacy for psychological centers.
-- Complete full integration of all frontend forms with backend APIs.
-- Extend reporting and analytics for appointments, donations, and diet plans.
+### 📂 Project Structure
+```bash
+├── 📁 frontend/     # Public Landing Page & Patient Interface (HTML/CSS/JS)
+├── 📁 backend/      # PHP MVC Core, Models, Controllers, and API
+├── 📁 database/     # SQL Schemas and Migration Scripts
+└── 📁 .github/      # CI/CD and Developer Instructions
+```
+
+---
+
+### 🛠️ Local Setup Guide
+
+1. **Environment Ready?**  
+   Ensure you are using **XAMPP** (PHP 7.4+ and MySQL).
+2. **Installation**  
+   Clone/Move the project to `C:\xampp\htdocs\FYP`.
+3. **Database Auto-Setup**  
+   Navigate to `http://localhost/FYP/backend/`. The system will automatically detect and import the `schema.sql`.
+4. **Seed Initial Content**  
+   Run `http://localhost/FYP/backend/seed_blogs.php` to populate the homepage News section.
+5. **Accessing the App**  
+   - **User Frontend**: `http://localhost/FYP/frontend/index.html`
+   - **Admin Portal**: `http://localhost/FYP/backend/?route=auth/login`
+
+---
+
+### 🗺️ Future Roadmap
+- [ ] Implement advanced privacy encryption for Mental Health case notes.
+- [ ] Add Telegram/WhatsApp notifications for appointment reminders.
+- [ ] Expand the Patient Dashboard for history & reports.
+- [ ] Real-time inventory tracking for Hospital Blood Stock.
+
+---
+**Med Nova** – *Bridging the gap between technology and healthcare.*
 
