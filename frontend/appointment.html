@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Med Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2 navbar-home">
+        <div class="container-fluid px-lg-5 nav-inner align-items-center d-flex justify-content-between">
+            <a class="navbar-brand d-flex align-items-center me-4" href="index.html">
+                <img src="../logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo" style="height: 80px;">
+                <span class="brand-text ms-2 fw-bold" style="color: #04214f; font-size: 1.25rem;">Med Nova</span>
+            </a>
+
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="blood-donation.html" class="nav-link">Donate Blood</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="diet_plan.html">Diet Plan</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center ms-lg-4 gap-2 mt-3 mt-lg-0 navbar-cta-group">
+                    <a class="btn btn-accent btn-sm rounded-pill px-3 fw-bold d-inline-flex align-items-center"
+                        href="psychology.html" style="height: 38px;">
+                        <i class="fas fa-brain me-1"></i> Psychological
+                    </a>
+                    <a class="btn btn-primary btn-sm rounded-pill px-3 d-inline-flex align-items-center"
+                        href="appointment.html" style="height: 38px;">Get Appointment</a>
+                </div>
+                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="#hospitalLoginModal"
+                    data-bs-toggle="modal">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="internal-hero">
+        <div class="container text-center text-white">
+            <h1 class="display-6 fw-bold mb-2 about-hero-title">Get An Appointment</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0 bg-transparent">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active text-white opacity-75" aria-current="page">Appointment</li>
+                </ol>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="appointment-card p-5 shadow-lg rounded-4 bg-white" id="appointment-form-step-1">
+
+                    <!-- PROGRESS BAR -->
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="small fw-bold text-primary" id="progress-text">Step 1: Personal Info</span>
+                            <span class="small fw-bold text-muted" id="progress-percent">33%</span>
+                        </div>
+                        <div class="progress"
+                            style="height: 8px; border-radius: 4px; background-color: var(--accent-soft, #eef6ff);">
+                            <div id="appointment-progress"
+                                class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                style="width: 33%; transition: width 0.3s ease;"></div>
+                        </div>
+                        <div class="row mt-4 text-center d-none d-md-flex">
+                            <div class="col-4 step-item active" id="step-label-1">
+                                <div class="small fw-bold">My Info</div>
+                            </div>
+                            <div class="col-4 step-item" id="step-label-2">
+                                <div class="small fw-bold">Selection</div>
+                            </div>
+                            <div class="col-4 step-item" id="step-label-3">
+                                <div class="small fw-bold">Done</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 1: PERSONAL INFO -->
+                    <div id="step-1">
+                        <form id="step-1-form">
+                            <h3 class="fw-bold text-center mb-4">Personal Information</h3>
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label class="form-label text-muted">Full Name</label>
+                                    <input class="form-control form-control-lg" id="name" name="name"
+                                        placeholder="Ex. John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Phone Number</label>
+                                    <input class="form-control form-control-lg" id="phone" name="phone" type="tel"
+                                        placeholder="+1 234 567 890" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Preferred Time</label>
+                                    <select class="form-select form-select-lg" name="time" required>
+                                        <option value="">Select Time</option>
+                                        <option value="morning">Morning (9 AM - 12 PM)</option>
+                                        <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                                        <option value="evening">Evening (5 PM - 9 PM)</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-4 text-end">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill">Next Step
+                                        &rarr;</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- STEP 2: REGION & DOCTOR SELECTION -->
+                    <div id="step-2" class="d-none">
+                        <form id="step-2-form">
+                            <h3 class="fw-bold text-center mb-4">Choose Location & Doctor</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Region</label>
+                                    <select class="form-select form-select-lg" name="region" required>
+                                        <option value="">Select Region</option>
+                                        <!-- Populated via JS -->
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Hospital</label>
+                                    <select class="form-select form-select-lg" name="hospital" required disabled>
+                                        <option value="">Select Region First</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Department</label>
+                                    <select class="form-select form-select-lg" name="department" required disabled>
+                                        <option value="">Select Hospital First</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Doctor</label>
+                                    <select class="form-select form-select-lg" name="doctor" required disabled>
+                                        <option value="">Select Department First</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label text-muted">Preferred Date</label>
+                                    <input class="form-control form-control-lg" name="date" type="date" required>
+                                </div>
+
+                                <div class="col-12 mt-4 d-flex justify-content-between">
+                                    <button type="button" id="back-to-step-1"
+                                        class="btn btn-light btn-lg px-4 rounded-pill">&larr; Back</button>
+                                    <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill">Next Step
+                                        &rarr;</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    <!-- STEP 3: SUCCESS -->
+                    <div id="step-3" class="d-none text-center py-4">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                            style="width: 80px; height: 80px; font-size: 40px;">✓</div>
+                        <h2 class="fw-bold text-success mb-3">Appointment Booked!</h2>
+                        <p class="text-muted mb-4">
+                            Thank you, <strong id="confirm-name">User</strong>. Your appointment with <strong
+                                id="confirm-doctor">Doctor</strong> on <strong id="confirm-date">Date</strong> has been
+                            requested.<br>
+                            Your diet plan details have been submitted.
+                        </p>
+                        <a href="index.html" class="btn btn-outline-primary btn-lg rounded-pill px-5">Back to Home</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer py-5 bg-soft">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-3">
+                    <div class="footer-brand d-flex align-items-center gap-3">
+                        <div class="brand-mark bg-primary text-white p-2 rounded">MN</div>
+                        <strong>Med Nova</strong>
+                    </div>
+                    <p class="muted mt-3">Dedicated to providing top-notch healthcare services. Your health is our
+                        priority.</p>
+                    <div class="footer-social mt-3">
+                        <button class="me-3 btn btn-link p-0 text-white"><i
+                                class="fab fa-facebook-f text-white"></i></button>
+                        <button class="me-3 btn btn-link p-0 text-white"><i
+                                class="fab fa-twitter text-white"></i></button>
+                        <button class="btn btn-link p-0 text-white"><i
+                                class="fab fa-linkedin-in text-white"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Features</h6>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="blood-donation.html" class="text-decoration-none text-muted">Blood Donation</a>
+                        </li>
+                        <li><a href="doctors.html" class="text-decoration-none text-muted">Find Doctors</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Our Newsletter</h6>
+                    <p class="muted small">Stay updated with our latest health news and tips.</p>
+                    <form class="newsletter-input mt-3 d-flex align-items-center rounded-pill p-1 bg-white border"
+                        style="max-width: 320px;">
+                        <input class="form-control border-0 shadow-none" type="tel" placeholder="Enter WhatsApp Number"
+                            required>
+                        <button class="btn btn-primary rounded-circle ms-2" type="submit"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Contact</h6>
+                    <p class="muted mt-3">
+                        <strong>WhatsApp:</strong><br>
+                        <a href="https://wa.me/1234567890?text=Hello%20Med%20Nova%2C%20I%20need%20help%20booking%20an%20appointment"
+                            class="text-decoration-none text-success fw-bold" target="_blank">
+                            <i class="fab fa-whatsapp me-1"></i>+1 (234) 567-8900
+                        </a>
+                    </p>
+                    <p class="muted">Kohat, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-between small muted align-items-center">
+                <div>© Med Nova 2026 | All Rights Reserved</div>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-decoration-none text-muted">Privacy Policy</a>
+                    <a href="contact.html" class="text-decoration-none text-muted">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

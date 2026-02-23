@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Med Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2 navbar-home">
+        <div class="container-fluid px-lg-5 nav-inner align-items-center d-flex justify-content-between">
+            <a class="navbar-brand d-flex align-items-center me-0" href="index.html">
+                <img src="../logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+                <span class="brand-text ms-2 fw-bold" style="color: var(--blue-900); font-size: 1.4rem;">Med Nova</span>
+            </a>
+
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="blood-donation.html" class="nav-link">Donate Blood</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="diet_plan.html">Diet Plan</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center ms-lg-2 gap-2 mt-3 mt-lg-0 navbar-cta-group">
+                    <a class="btn btn-accent btn-sm rounded-pill px-3 fw-bold d-inline-flex align-items-center"
+                        href="psychology.html" style="height: 38px;">
+                        <i class="fas fa-brain me-1"></i> Psychological
+                    </a>
+                    <a class="btn btn-primary btn-sm rounded-pill px-3 d-inline-flex align-items-center"
+                        href="appointment.html" style="height: 38px;">Get Appointment</a>
+                </div>
+                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="#hospitalLoginModal"
+                    data-bs-toggle="modal">Login</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <header class="internal-hero">
+        <div class="container text-center text-white">
+            <h1 class="display-4 fw-bold">Our Medical Services</h1>
+            <p class="lead opacity-75 mx-auto" style="max-width: 600px;">World-class facilities and specialized
+                treatments for your well-being.</p>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary fw-bold text-uppercase">SaaS Solutions</h6>
+            <h2 class="fw-bold fs-2">Healthcare Management Redefined</h2>
+            <p class="text-muted mx-auto" style="max-width: 600px;">
+                Med Nova offers a comprehensive suite of digital tools for hospitals, clinics, and patients.
+            </p>
+        </div>
+        <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center" id="services-grid">
+            <!-- SaaS Service 1: Hospital -->
+            <div class="col">
+                <div class="service-pro-card h-100">
+                    <div class="service-icon-box">🏥</div>
+                    <h5 class="fw-bold mb-3" style="color: var(--blue-900)">Hospital SaaS</h5>
+                    <div class="mb-2 text-uppercase small fw-bold text-muted">Enterprise Solution</div>
+                    <p class="text-muted small mb-4">Comprehensive ERP for large hospitals: Manage ER, bed occupancy,
+                        inventory, and cross-department billing.</p>
+                    <a href="contact.html" class="service-learn-more mt-auto">Enterprise Demo &rarr;</a>
+                </div>
+            </div>
+            <!-- SaaS Service 2: Clinic -->
+            <div class="col">
+                <div class="service-pro-card h-100">
+                    <div class="service-icon-box">🩺</div>
+                    <h5 class="fw-bold mb-3" style="color: var(--blue-900)">Clinic SaaS</h5>
+                    <div class="mb-2 text-uppercase small fw-bold text-muted">Practice Management</div>
+                    <p class="text-muted small mb-4">Streamlined tools for small clinics: Smart scheduling, digital
+                        prescriptions, and patient history tracking.</p>
+                    <a href="contact.html" class="service-learn-more mt-auto">Clinic Setup &rarr;</a>
+                </div>
+            </div>
+            <!-- SaaS Service 2 -->
+            <div class="col">
+                <div class="service-pro-card h-100">
+                    <div class="service-icon-box">💻</div>
+                    <h5 class="fw-bold mb-3" style="color: var(--blue-900)">Online Consultation</h5>
+                    <div class="mb-2 text-uppercase small fw-bold text-muted">Virtual Health</div>
+                    <p class="text-muted small mb-4">Connect with specialized doctors from anywhere in Kohat via secure
+                        video and chat consultations.</p>
+                    <a href="doctors.html" class="service-learn-more mt-auto">Find Doctors &rarr;</a>
+                </div>
+            </div>
+            <!-- SaaS Service 3 -->
+            <div class="col">
+                <div class="service-pro-card h-100">
+                    <div class="service-icon-box">🧠</div>
+                    <h5 class="fw-bold mb-3" style="color: var(--blue-900)">Psychological Management</h5>
+                    <div class="mb-2 text-uppercase small fw-bold text-muted">Mental Wellness</div>
+                    <p class="text-muted small mb-4">Specialized online psychological consultation system for mental
+                        health support, therapy, and counseling.</p>
+                    <a href="appointment.html?dept=Psychology" class="service-learn-more mt-auto">Book Session
+                        &rarr;</a>
+                </div>
+            </div>
+            <!-- SaaS Service 4 -->
+            <div class="col">
+                <div class="service-pro-card h-100">
+                    <div class="service-icon-box">🩸</div>
+                    <h5 class="fw-bold mb-3" style="color: var(--blue-900)">Blood Donation Registry</h5>
+                    <div class="mb-2 text-uppercase small fw-bold text-muted">Live Saving</div>
+                    <p class="text-muted small mb-4">A digital mapping system for blood donors and recipients. Register
+                        to save lives or find urgent donors.</p>
+                    <a href="blood-donation.html" class="service-learn-more mt-auto">Donate Now &rarr;</a>
+                </div>
+            </div>
+            <!-- SaaS Service 5 -->
+            <div class="col">
+                <div class="service-pro-card h-100">
+                    <div class="service-icon-box">🥗</div>
+                    <h5 class="fw-bold mb-3" style="color: var(--blue-900)">Smart Diet Planning</h5>
+                    <div class="mb-2 text-uppercase small fw-bold text-muted">Personalized Nutrition</div>
+                    <p class="text-muted small mb-4">Get personalized diet plans according to your health goals, managed
+                        by expert nutritionists.</p>
+                    <a href="diet_plan.html" class="service-learn-more mt-auto">Start Planning &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer py-5 bg-soft">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-3">
+                    <div class="footer-brand d-flex align-items-center gap-3">
+                        <div class="brand-mark bg-primary text-white p-2 rounded">MN</div>
+                        <strong>Med Nova</strong>
+                    </div>
+                    <p class="muted mt-3">Dedicated to providing top-notch healthcare services. Your health is our
+                        priority.</p>
+                    <div class="footer-social mt-3">
+                        <button class="me-3 btn btn-link p-0 text-white"><i
+                                class="fab fa-facebook-f text-white"></i></button>
+                        <button class="me-3 btn btn-link p-0 text-white"><i
+                                class="fab fa-twitter text-white"></i></button>
+                        <button class="btn btn-link p-0 text-white"><i
+                                class="fab fa-linkedin-in text-white"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Features</h6>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="blood-donation.html" class="text-decoration-none text-muted">Blood Donation</a>
+                        </li>
+                        <li><a href="doctors.html" class="text-decoration-none text-muted">Find Doctors</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Our Newsletter</h6>
+                    <p class="muted small">Stay updated with our latest health news and tips.</p>
+                    <form class="newsletter-input mt-3 d-flex align-items-center rounded-pill p-1 bg-white border"
+                        style="max-width: 320px;">
+                        <input class="form-control border-0 shadow-none" type="tel" placeholder="Enter WhatsApp Number"
+                            required>
+                        <button class="btn btn-primary rounded-circle ms-2" type="submit"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Contact</h6>
+                    <p class="muted mt-3">
+                        <strong>WhatsApp:</strong><br>
+                        <a href="https://wa.me/1234567890?text=Hello%20Med%20Nova%2C%20I%20need%20help%20with%20healthcare%20services"
+                            class="text-decoration-none text-success fw-bold" target="_blank">
+                            <i class="fab fa-whatsapp me-1"></i>+1 (234) 567-8900
+                        </a>
+                    </p>
+                    <p class="muted">Kohat, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-between small muted align-items-center">
+                <div>© Med Nova 2026 | All Rights Reserved</div>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-decoration-none text-muted">Privacy Policy</a>
+                    <a href="contact.html" class="text-decoration-none text-muted">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors - Med Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2 navbar-home">
+        <div class="container-fluid px-lg-5 nav-inner align-items-center d-flex justify-content-between">
+            <a class="navbar-brand d-flex align-items-center me-4" href="index.html">
+                <img src="../logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo" style="height: 80px;">
+                <span class="brand-text ms-2 fw-bold" style="color: var(--blue-900); font-size: 1.25rem;">Med
+                    Nova</span>
+            </a>
+
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="doctors.html">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="blood-donation.html" class="nav-link">Donate Blood</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="diet_plan.html">Diet Plan</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center ms-lg-4 gap-2 mt-3 mt-lg-0 navbar-cta-group">
+                    <a class="btn btn-accent btn-sm rounded-pill px-3 fw-bold d-inline-flex align-items-center"
+                        href="psychology.html" style="height: 38px;">
+                        <i class="fas fa-brain me-1"></i> Psychological
+                    </a>
+                    <a class="btn btn-primary btn-sm rounded-pill px-3 d-inline-flex align-items-center"
+                        href="appointment.html" style="height: 38px;">Get Appointment</a>
+                </div>
+                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="#hospitalLoginModal"
+                    data-bs-toggle="modal">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="internal-hero">
+        <div class="container text-center text-white">
+            <h1 class="display-4 fw-bold mb-3">Find Your Specialist</h1>
+            <p class="lead opacity-90 mx-auto" style="max-width: 600px;">
+                Connect with top-rated medical experts in Kohat for personalized care.
+            </p>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <div class="row g-4">
+
+            <!-- TOP BAR: FILTERS -->
+            <div class="col-12 mb-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-3">
+                            <label class="small fw-bold text-muted mb-1">Select Region</label>
+                            <select id="region-filter" class="form-select bg-light border-0">
+                                <option value="">All Regions</option>
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small fw-bold text-muted mb-1">Universal Search</label>
+                            <div class="position-relative">
+                                <input type="text" id="universal-search" class="form-control bg-light border-0 ps-5"
+                                    placeholder="Search Hospital, Clinic, or Doctor...">
+                                <i class="fas fa-search position-absolute text-muted"
+                                    style="left: 15px; top: 50%; transform: translateY(-50%);"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <label class="small fw-bold text-muted mb-1 d-block">&nbsp;</label>
+                            <button id="reset-filters" class="btn btn-outline-secondary btn-sm"><i
+                                    class="fas fa-undo"></i> Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABS & LIST -->
+            <div class="col-lg-7">
+                <!-- TABS -->
+                <ul class="nav nav-pills mb-3 gap-2" id="facility-tabs">
+                    <li class="nav-item">
+                        <button class="nav-link active rounded-pill px-4" data-type="hospital">Hospitals</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link rounded-pill px-4" data-type="clinic">Clinics</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link rounded-pill px-4" data-type="all">All Facilities</button>
+                    </li>
+                </ul>
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0 text-muted" id="results-count">Loading...</h5>
+                </div>
+
+                <div class="d-flex flex-column gap-3" id="main-list-container">
+                    <!-- Populated by JS -->
+                    <div class="text-center p-5">
+                        <div class="spinner-border text-primary" role="status"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: DETAIL PANEL -->
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="sticky-top" style="top: 100px;">
+                    <div id="detail-panel">
+                        <!-- Populated by JS or Hidden -->
+                        <div class="text-center text-muted py-5 card border-0 shadow-sm h-100 d-flex align-items-center justify-content-center"
+                            style="min-height: 400px;">
+                            <div>
+                                <i class="fas fa-hospital-user fa-3x mb-3 opacity-25"></i>
+                                <p>Select a Hospital or Clinic to view details and doctors.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer py-5 bg-soft">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-3">
+                    <div class="footer-brand d-flex align-items-center gap-3">
+                        <div class="brand-mark bg-primary text-white p-2 rounded">MN</div>
+                        <strong>Med Nova</strong>
+                    </div>
+                    <p class="muted mt-3">Dedicated to providing top-notch healthcare services. Your health is our
+                        priority.</p>
+                    <div class="footer-social mt-3">
+                        <button class="me-3 btn btn-link p-0 text-white"><i
+                                class="fab fa-facebook-f text-white"></i></button>
+                        <button class="me-3 btn btn-link p-0 text-white"><i
+                                class="fab fa-twitter text-white"></i></button>
+                        <button class="btn btn-link p-0 text-white"><i
+                                class="fab fa-linkedin-in text-white"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Features</h6>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="blood-donation.html" class="text-decoration-none text-muted">Blood Donation</a>
+                        </li>
+                        <li><a href="doctors.html" class="text-decoration-none text-muted">Find Doctors</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Our Newsletter</h6>
+                    <p class="muted small">Stay updated with our latest health news and tips.</p>
+                    <form class="newsletter-input mt-3 d-flex align-items-center rounded-pill p-1 bg-white border"
+                        style="max-width: 320px;">
+                        <input class="form-control border-0 shadow-none" type="tel" placeholder="Enter WhatsApp Number"
+                            required>
+                        <button class="btn btn-primary rounded-circle ms-2" type="submit"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Contact</h6>
+                    <p class="muted mt-3">
+                        <strong>WhatsApp:</strong><br>
+                        <a href="https://wa.me/1234567890?text=Hello%20Med%20Nova%2C%20I%20need%20help%20finding%20a%20doctor"
+                            class="text-decoration-none text-success fw-bold" target="_blank">
+                            <i class="fab fa-whatsapp me-1"></i>+1 (234) 567-8900
+                        </a>
+                    </p>
+                    <p class="muted">Kohat, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-between small muted align-items-center">
+                <div>© Med Nova 2026 | All Rights Reserved</div>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-decoration-none text-muted">Privacy Policy</a>
+                    <a href="contact.html" class="text-decoration-none text-muted">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

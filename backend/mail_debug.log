@@ -1,0 +1,152 @@
+[2026-02-22 10:25:50] S: 220 smtp.gmail.com ESMTP 5b1f17b1804b1-483a42f3968sm70346065e9.19 - gsmtp
+
+[2026-02-22 10:25:50] C: EHLO localhost
+[2026-02-22 10:25:50] S: 250-smtp.gmail.com at your service, [182.185.127.106]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[2026-02-22 10:25:50] C: STARTTLS
+[2026-02-22 10:25:50] S: 220 2.0.0 Ready to start TLS
+
+[2026-02-22 10:25:50] C: EHLO localhost
+[2026-02-22 10:25:51] S: 250-smtp.gmail.com at your service, [182.185.127.106]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[2026-02-22 10:25:51] C: AUTH LOGIN
+[2026-02-22 10:25:51] S: 334 VXNlcm5hbWU6
+
+[2026-02-22 10:25:51] C: eW91ci1lbWFpbEBnbWFpbC5jb20=
+[2026-02-22 10:25:51] S: 334 UGFzc3dvcmQ6
+
+[2026-02-22 10:25:51] C: eW91ci1hcHAtcGFzc3dvcmQ=
+[2026-02-22 10:25:51] S: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-483a42f3968sm70346065e9.19 - gsmtp
+
+[2026-02-22 10:25:51] Authentication failed: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-483a42f3968sm70346065e9.19 - gsmtp
+
+[2026-02-22 10:27:11] S: 220 smtp.gmail.com ESMTP ffacd0b85a97d-43970c00d0csm11225338f8f.11 - gsmtp
+
+[2026-02-22 10:27:11] C: EHLO localhost
+[2026-02-22 10:27:11] S: 250-smtp.gmail.com at your service, [182.185.127.106]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[2026-02-22 10:27:11] C: STARTTLS
+[2026-02-22 10:27:11] S: 220 2.0.0 Ready to start TLS
+
+[2026-02-22 10:27:12] C: EHLO localhost
+[2026-02-22 10:27:12] S: 250-smtp.gmail.com at your service, [182.185.127.106]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[2026-02-22 10:27:12] C: AUTH LOGIN
+[2026-02-22 10:27:12] S: 334 VXNlcm5hbWU6
+
+[2026-02-22 10:27:12] C: eW91ci1lbWFpbEBnbWFpbC5jb20=
+[2026-02-22 10:27:12] S: 334 UGFzc3dvcmQ6
+
+[2026-02-22 10:27:12] C: eW91ci1hcHAtcGFzc3dvcmQ=
+[2026-02-22 10:27:12] S: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-43970c00d0csm11225338f8f.11 - gsmtp
+
+[2026-02-22 10:27:12] Authentication failed: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-43970c00d0csm11225338f8f.11 - gsmtp
+
+[2026-02-22 11:23:59] S: 220 smtp.gmail.com ESMTP ffacd0b85a97d-43970d3fc12sm9493367f8f.24 - gsmtp
+
+[2026-02-22 11:23:59] C: EHLO localhost
+[2026-02-22 11:23:59] S: 250-smtp.gmail.com at your service, [182.185.127.106]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[2026-02-22 11:23:59] C: STARTTLS
+[2026-02-22 11:23:59] S: 220 2.0.0 Ready to start TLS
+
+[2026-02-22 11:24:00] C: EHLO localhost
+[2026-02-22 11:24:00] S: 250-smtp.gmail.com at your service, [182.185.127.106]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[2026-02-22 11:24:00] C: AUTH LOGIN
+[2026-02-22 11:24:00] S: 334 VXNlcm5hbWU6
+
+[2026-02-22 11:24:00] C: eW91ci1lbWFpbEBnbWFpbC5jb20=
+[2026-02-22 11:24:01] S: 334 UGFzc3dvcmQ6
+
+[2026-02-22 11:24:01] C: eW91ci1hcHAtcGFzc3dvcmQ=
+[2026-02-22 11:24:01] S: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-43970d3fc12sm9493367f8f.24 - gsmtp
+
+[2026-02-22 11:24:01] Authentication failed: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-43970d3fc12sm9493367f8f.24 - gsmtp
+
+[2026-02-22 17:55:28] S: 220 smtp.gmail.com ESMTP 5b1f17b1804b1-483a31c0779sm337936915e9.6 - gsmtp
+
+[2026-02-22 17:55:28] C: EHLO localhost
+[2026-02-22 17:55:29] S: 250-smtp.gmail.com at your service, [182.187.128.119]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[2026-02-22 17:55:29] C: STARTTLS
+[2026-02-22 17:55:29] S: 220 2.0.0 Ready to start TLS
+
+[2026-02-22 17:55:29] C: EHLO localhost
+[2026-02-22 17:55:30] S: 250-smtp.gmail.com at your service, [182.187.128.119]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[2026-02-22 17:55:30] C: AUTH LOGIN
+[2026-02-22 17:55:30] S: 334 VXNlcm5hbWU6
+
+[2026-02-22 17:55:30] C: eW91ci1lbWFpbEBnbWFpbC5jb20=
+[2026-02-22 17:55:30] S: 334 UGFzc3dvcmQ6
+
+[2026-02-22 17:55:30] C: eW91ci1hcHAtcGFzc3dvcmQ=
+[2026-02-22 17:55:31] S: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-483a31c0779sm337936915e9.6 - gsmtp
+
+[2026-02-22 17:55:31] Authentication failed: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-483a31c0779sm337936915e9.6 - gsmtp
+

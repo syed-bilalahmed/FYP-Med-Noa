@@ -1,0 +1,28 @@
+<?php
+
+class User {
+    private $conn;
+    private $table_name = "users";
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+    public function login($email, $password) {
+        $query = "SELECT id, name, email, password, role FROM " . $this->table_name . " WHERE email = :email LIMIT 0,1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            // In a real app, use password_verify($password, $row['password'])
+            // For this demo/setup, we use plain text as per the SQL insert provided earlier
+            // OR if you want secure, update the SQL insert to use hashed passwords.
+            if (password_verify($password, $row['password'])) {
+                return $row;
+            }
+        }
+        return false;
+    }
+}
