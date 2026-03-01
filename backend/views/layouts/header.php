@@ -42,10 +42,13 @@
 
                 <!-- Universal Search Bar -->
                 <div class="flex-grow-1 mx-4 d-none d-md-block" style="max-width: 500px;">
-                    <form action="?route=hospital_admin/search" method="GET" class="position-relative">
-                        <input type="hidden" name="route" value="hospital_admin/search">
+                    <?php 
+                        $searchRoute = $_SESSION['role'] === 'admin' ? 'admin/search' : 'hospital_admin/search';
+                    ?>
+                    <form action="?route=<?= $searchRoute ?>" method="GET" class="position-relative">
+                        <input type="hidden" name="route" value="<?= $searchRoute ?>">
                         <input type="text" name="q" class="form-control border-0 bg-light rounded-pill px-4" 
-                               placeholder="Search for patients, doctors, or appointments..."
+                               placeholder="Search..."
                                value="<?= htmlspecialchars($_GET['q'] ?? '') ?>"
                                style="height: 42px; font-size: 14px;">
                         <button type="submit" class="position-absolute end-0 top-0 h-100 border-0 bg-transparent px-3 text-muted">

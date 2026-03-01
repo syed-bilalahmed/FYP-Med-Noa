@@ -33,7 +33,7 @@ class Router {
 
             // API
             'blog/api_list' => ['BlogController', 'api_list'],
-            'api/regions' => ['AdminController', 'api_regions'],
+            'api/regions' => ['ApiController', 'regions'],
 
             // Default/Auth Routes
             'auth/login' => ['AuthController', 'login'],

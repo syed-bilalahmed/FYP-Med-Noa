@@ -212,7 +212,7 @@
                 <?php if(isset($hospital) && !empty($hospital['image'])): ?>
                     <img src="<?= $hospital['image'] ?>" alt="Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
                 <?php else: ?>
-                    <img src="assets/logo.jpeg" alt="Mednoa Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
+                    <img src="../logo.jpeg" alt="Mednoa Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
                 <?php endif; ?>
             </div>
             <h1>Mednoa Admin</h1>

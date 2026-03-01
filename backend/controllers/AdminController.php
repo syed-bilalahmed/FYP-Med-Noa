@@ -407,4 +407,36 @@ class AdminController extends Controller {
         $data['page_title'] = "Hospital Statistics";
         $this->view('admin/hospital_stats', $data);
     }
+
+    // --- Universal Search for Super Admin ---
+    public function search() {
+        $q = $_GET['q'] ?? '';
+        $data['query'] = $q;
+        
+        if (empty(trim($q))) {
+            $data['results'] = [];
+        } else {
+            $searchTerm = "%$q%";
+            
+            // Search Hospitals & Clinics
+            $stmt = $this->db->prepare("SELECT id, name, type, 'hospital' as category FROM hospitals WHERE name LIKE :q OR address LIKE :q");
+            $stmt->execute([':q' => $searchTerm]);
+            $hospitals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Search Doctors
+            $stmt = $this->db->prepare("
+                SELECT u.id, u.name, dd.specialization as type, 'doctor' as category 
+                FROM users u 
+                JOIN doctors_details dd ON u.id = dd.user_id 
+                WHERE (u.name LIKE :q OR u.email LIKE :q OR dd.specialization LIKE :q) AND u.role = 'doctor'
+            ");
+            $stmt->execute([':q' => $searchTerm]);
+            $doctors = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $data['results'] = array_merge($hospitals, $doctors);
+        }
+
+        $data['page_title'] = "Search Results";
+        $this->view('admin/search_results', $data);
+    }
 }
